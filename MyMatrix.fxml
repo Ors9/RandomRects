@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Maman11Q2.MyMatrixController">
+   <children>
+      <ToolBar prefHeight="90.0" prefWidth="600.0">
+         <items>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onFillButtonClicked" prefHeight="19.0" prefWidth="138.0" text="Press ME" textAlignment="CENTER">
+               <font>
+                  <Font name="Bradley Hand ITC" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </items>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </ToolBar>
+      <Canvas fx:id="myCanvas" height="340.0" width="601.0" />
+   </children>
+</VBox>
