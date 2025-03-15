@@ -65,16 +65,7 @@ public class MyMatrixController {
 	// Fill exactly 10% of the grid cells with color randomly.
 	private void fillTenPercentOfGrid() {
 
-		// Retrieve the current dimensions of the canvas.
-		double width = myCanvas.getWidth();
-		double height = myCanvas.getHeight();
-
-		// Calculate the number of rows and columns based on the cell size.
-		int rows = (int) (height / CELL_SIZE);
-		int cols = (int) (width / CELL_SIZE);
-
-		// Compute the total number of cells in the grid.
-		int totalCells = rows * cols;
+		int totalCells = totalCellsInTheGrid();
 
 		// Determine the number of cells to fill (10% of total).
 		int cellsToFill = (int) (totalCells * 0.1);
@@ -89,13 +80,50 @@ public class MyMatrixController {
 		// Shuffle the list to ensure random selection of cells.
 		Collections.shuffle(indices);
 
+		// Fill the selected cells based on their indices.
+		fillSelectedCells(indices, cellsToFill);
+
+	}
+
+	// Compute the total number of cells in the grid.
+	private int totalCellsInTheGrid() {
+		// Calculate the number of rows and columns based on the cell size.
+		int rows = getRow();
+		int cols = getCol();
+
+		// Compute the total number of cells in the grid.
+		return rows * cols;
+	}
+
+	// Computes the number of rows in the grid.
+	private int getRow() {
+		// Retrieve the current height of the canvas.
+		double height = myCanvas.getHeight();
+
+		// Calculate the number of rows.
+		return (int) (height / CELL_SIZE);
+
+	}
+
+	// Computes the number of columns in the grid.
+	private int getCol() {
+		// Retrieve the current width of the canvas.
+		double width = myCanvas.getWidth();
+
+		// Calculate the number of columns based on the cell size.
+		return (int) (width / CELL_SIZE);
+
+	}
+
+	// Fill the selected cells based on their indices.
+	private void fillSelectedCells(ArrayList<Integer> indices, int cellsToFill) {
 		// Fill the selected cells.
 		for (int i = 0; i < cellsToFill; i++) {
 			int index = indices.get(i);
 
 			// Convert the index to row and column coordinates.
-			int row = index / cols;
-			int col = index % cols;
+			int row = index / getRow();
+			int col = index % getCol();
 
 			// Calculate the x and y coordinates of the top-left corner of the cell.
 			double x = col * CELL_SIZE;
@@ -104,7 +132,6 @@ public class MyMatrixController {
 			// Fill the cell.
 			gc.fillRect(x, y, CELL_SIZE, CELL_SIZE);
 		}
-
 	}
 
 }
