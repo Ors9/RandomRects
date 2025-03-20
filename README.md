@@ -1,7 +1,7 @@
 # JavaFX Grid-Based Randomization
 
 ## Important note
-You can download the ZIP file and twice click on the run.bat to run it on your computer
+You can download the ZIP file and extract the files , after that go to the folder you extract the files and  click twice on the run.bat to run it on your computer
 
 ## Description
 This project implements a **JavaFX-based grid simulation** where **10% of the grid cells are randomly filled with rectangles** when the user clicks a button. The visualization is rendered using a `Canvas` component within a JavaFX application.
